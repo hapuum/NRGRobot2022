@@ -8,6 +8,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.DriveWithController;
+import frc.robot.subsystems.SwerveDrive;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -16,11 +18,14 @@ import edu.wpi.first.wpilibj2.command.Command;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-
+    private final XboxController driveController = new XboxController(2);
+    private final SwerveDrive swerveDrive = new SwerveDrive();
+    private final DriveWithController driveWithController = new DriveWithController(swerveDrive, driveController);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    swerveDrive.setDefaultCommand(driveWithController);
     // Configure the button bindings
     configureButtonBindings();
   }
