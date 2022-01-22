@@ -27,7 +27,7 @@ public class SwerveDrive extends SubsystemBase {
 
   /*Swerve Module helper class*/
   private class Module {
-    private static final double kWheelRadius = 0.0508;
+    private static final double kWheelRadius = 0.047625; //1.875 inches in meters
     private static final int kEncoderResolution = 4096;
 
     private static final double kModuleMaxAngularVelocity = SwerveDrive.kMaxAngularSpeed;
@@ -130,11 +130,11 @@ public class SwerveDrive extends SubsystemBase {
 
   public static final double kMaxSpeed = 3.0; // 3 meters per second
   public static final double kMaxAngularSpeed = Math.PI; // 1/2 rotation per second
-
-  private final Translation2d m_frontLeftLocation = new Translation2d(0.381, 0.381);
-  private final Translation2d m_frontRightLocation = new Translation2d(0.381, -0.381);
-  private final Translation2d m_backLeftLocation = new Translation2d(-0.381, 0.381);
-  private final Translation2d m_backRightLocation = new Translation2d(-0.381, -0.381);
+  //13.75 and 9.75 inches
+  private final Translation2d m_frontLeftLocation = new Translation2d(0.34925, 0.24765);
+  private final Translation2d m_frontRightLocation = new Translation2d(0.34925, -0.24765);
+  private final Translation2d m_backLeftLocation = new Translation2d(-0.34925, 0.24765);
+  private final Translation2d m_backRightLocation = new Translation2d(-0.34925, -0.24765);
 
   private final Module m_frontLeft = new Module(1, 2, 0, 1, 2, 3);
   private final Module m_frontRight = new Module(3, 4, 4, 5, 6, 7);
